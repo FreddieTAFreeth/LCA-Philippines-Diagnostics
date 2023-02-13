@@ -20,7 +20,7 @@ The file ```LatentClassAnalysisFTAF.R``` contains the source code that implement
  - ```Sensitivity_Prevalence_All_Hosts_Simplified.svg``` is the plot of the simulated sensitivites and prevalences of the JAGS model. Unlike the plots in the file ```Sensitivity_Prevalence_All_Hosts.svg```, the scatterpoints are replaced by error bars corresponding to the 95% confidence interval of the data, and the mean of the sensitivity and the mean of the prevalence is plotted point.
  - ```p1_p0_All_Hosts_Simplified.svg``` is the the Reciever Operating Characteristic (ROC) plot of the diagnostic sensitivity and 1 minus the diagnostic specificity. Like ```Sensitivity_Prevalence_All_Hosts_Simplified```, it plots each host for all parasites and diagnostics in a two-by-two grid. The mean of the diagnostic sensitivity and 1 minus the diagnostic specificity are plotted, with error bars corresponding to the 95% confidence interval for the data.
 
-Note: When running the code generating the figures ```Prevalence_Real_Sim_All_Hosts.svg```, ```Sensitivity_Prevalence_All_Hosts.svg```, ```Sensitivity_Prevalence_All_Hosts_Simplified.svg```, and ```p1_p0_All_Hosts_Simplified```, please ensure the RStudio plotting window is very large.
+Note: When running the code generating the figures ```Prevalence_Real_Sim_All_Hosts.svg```, ```Sensitivity_Prevalence_All_Hosts.svg```, ```Sensitivity_Prevalence_All_Hosts_Simplified.svg```, and ```p1_p0_All_Hosts_Simplified.svg```, please ensure the RStudio plotting window is very large.
 
 ## Session Info:
 The R version and used packages are displayed below:
