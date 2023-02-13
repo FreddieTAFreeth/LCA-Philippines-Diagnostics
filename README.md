@@ -25,34 +25,29 @@ Note: When running the code generating the figures ```Prevalence_Real_Sim_All_Ho
 ## Session Info:
 The R version and used packages are displayed below:
 ```
-R version 4.2.1 (2022-06-23 ucrt)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 19045)
+R version 4.2.2 (2022-10-31)
+Platform: aarch64-apple-darwin20 (64-bit)
+Running under: macOS Ventura 13.2
 
 Matrix products: default
+LAPACK: /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRlapack.dylib
 
 locale:
-[1] LC_COLLATE=English_United Kingdom.utf8  LC_CTYPE=English_United Kingdom.utf8   
-[3] LC_MONETARY=English_United Kingdom.utf8 LC_NUMERIC=C                           
-[5] LC_TIME=English_United Kingdom.utf8    
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 
 attached base packages:
-[1] compiler  stats     graphics  grDevices utils     datasets  methods   base     
+ [1] grid      parallel  compiler  stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] rstudioapi_0.14 MCMCpack_1.6-3  MASS_7.3-57     ggplot2_3.3.6  
- [5] runjags_2.2.1-7 Rmisc_1.5.1     plyr_1.8.7      lattice_0.20-45
- [9] rjags_4-13      coda_0.19-4    
+ [1] gridGraphics_0.5-1 rstudioapi_0.14    bayestestR_0.13.0  progressr_0.13.0   MCMCpack_1.6-3    
+ [6] MASS_7.3-58.1      ggplot2_3.4.0      runjags_2.2.1-7    rjags_4-13         coda_0.19-4       
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.9         cellranger_1.1.0   pillar_1.8.1       tools_4.2.1       
- [5] lifecycle_1.0.1    tibble_3.1.8       gtable_0.3.1       viridisLite_0.4.1 
- [9] pkgconfig_2.0.3    rlang_1.0.5        Matrix_1.4-1       cli_3.3.0         
-[13] DBI_1.1.3          parallel_4.2.1     SparseM_1.81       withr_2.5.0       
-[17] dplyr_1.0.10       MatrixModels_0.5-0 generics_0.1.3     vctrs_0.4.1       
-[21] grid_4.2.1         cowplot_1.1.1      tidyselect_1.1.2   glue_1.6.2        
-[25] R6_2.5.1           fansi_1.0.3        survival_3.3-1     readxl_1.4.1      
-[29] purrr_0.3.4        magrittr_2.0.3     splines_4.2.1      mcmc_0.9-7        
-[33] scales_1.2.1       assertthat_0.2.1   colorspace_2.0-3   quantreg_5.94     
-[37] utf8_1.2.2         munsell_0.5.0
+ [1] cellranger_1.1.0   pillar_1.8.1       tools_4.2.2        digest_0.6.31      lifecycle_1.0.3   
+ [6] tibble_3.1.8       gtable_0.3.1       viridisLite_0.4.1  lattice_0.20-45    pkgconfig_2.0.3   
+[11] rlang_1.0.6        Matrix_1.5-1       cli_3.6.0          SparseM_1.81       withr_2.5.0       
+[16] vctrs_0.5.2        MatrixModels_0.5-1 cowplot_1.1.1      glue_1.6.2         R6_2.5.1          
+[21] fansi_1.0.4        survival_3.4-0     readxl_1.4.1       magrittr_2.0.3     splines_4.2.2     
+[26] scales_1.2.1       mcmc_0.9-7         datawizard_0.6.5   insight_0.19.0     colorspace_2.1-0  
+[31] quantreg_5.94      utf8_1.2.2         munsell_0.5.0
 ```
