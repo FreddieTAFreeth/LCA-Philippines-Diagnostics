@@ -35,7 +35,7 @@ The R version and used packages are displayed below:
 ```
 R version 4.2.2 (2022-10-31)
 Platform: aarch64-apple-darwin20 (64-bit)
-Running under: macOS Ventura 13.2
+Running under: macOS Ventura 13.4
 
 Matrix products: default
 LAPACK: /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRlapack.dylib
@@ -44,18 +44,20 @@ locale:
 [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 
 attached base packages:
- [1] grid      parallel  compiler  stats     graphics  grDevices utils     datasets  methods   base     
+[1] compiler  stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] gridGraphics_0.5-1 rstudioapi_0.14    bayestestR_0.13.0  progressr_0.13.0   MCMCpack_1.6-3    
- [6] MASS_7.3-58.1      ggplot2_3.4.0      runjags_2.2.1-7    rjags_4-13         coda_0.19-4       
+[1] rstudioapi_0.14   bayestestR_0.13.0 MCMCpack_1.6-3    MASS_7.3-58.1     ggplot2_3.4.0     cowplot_1.1.1    
+[7] runjags_2.2.1-7   rjags_4-13        coda_0.19-4      
 
 loaded via a namespace (and not attached):
- [1] cellranger_1.1.0   pillar_1.8.1       tools_4.2.2        digest_0.6.31      lifecycle_1.0.3   
- [6] tibble_3.1.8       gtable_0.3.1       viridisLite_0.4.1  lattice_0.20-45    pkgconfig_2.0.3   
-[11] rlang_1.0.6        Matrix_1.5-1       cli_3.6.0          SparseM_1.81       withr_2.5.0       
-[16] vctrs_0.5.2        MatrixModels_0.5-1 cowplot_1.1.1      glue_1.6.2         R6_2.5.1          
-[21] fansi_1.0.4        survival_3.4-0     readxl_1.4.1       magrittr_2.0.3     splines_4.2.2     
-[26] scales_1.2.1       mcmc_0.9-7         datawizard_0.6.5   insight_0.19.0     colorspace_2.1-0  
-[31] quantreg_5.94      utf8_1.2.2         munsell_0.5.0
+ [1] cellranger_1.1.0   pillar_1.8.1       iterators_1.0.14   tools_4.2.2        viridisLite_0.4.1 
+ [6] lifecycle_1.0.3    tibble_3.1.8       gtable_0.3.1       lattice_0.20-45    pkgconfig_2.0.3   
+[11] rlang_1.0.6        foreach_1.5.2      igraph_1.3.5       Matrix_1.5-1       cli_3.6.0         
+[16] parallel_4.2.2     SparseM_1.81       withr_2.5.0        dplyr_1.1.0        MatrixModels_0.5-1
+[21] generics_0.1.3     vctrs_0.5.2        grid_4.2.2         tidyselect_1.2.0   glue_1.6.2        
+[26] R6_2.5.1           fansi_1.0.4        survival_3.4-0     readxl_1.4.1       farver_2.1.1      
+[31] magrittr_2.0.3     codetools_0.2-18   splines_4.2.2      scales_1.2.1       mcmc_0.9-7        
+[36] datawizard_0.6.5   insight_0.19.0     colorspace_2.1-0   quantreg_5.94      utf8_1.2.2        
+[41] munsell_0.5.0
 ```
