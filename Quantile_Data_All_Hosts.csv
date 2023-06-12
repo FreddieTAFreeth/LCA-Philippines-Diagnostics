@@ -1,0 +1,17 @@
+"","CI","CI_low","CI_high"
+"Prevalence_Ascaris_Humans",0.95,0.185284651102954,0.27512615652444
+"Prevalence_Trichuris_Humans",0.95,0.12100781305469,0.174260767091845
+"Prevalence_Hookworm_Humans",0.95,0.0343523527052458,0.0812582397928641
+"Prevalence_Schistosoma_Humans",0.95,0.0875281249954757,0.136172789196651
+"Prevalence_Ascaris_Cats_and_Dogs",0.95,0.00928096588718722,0.072676058488319
+"Prevalence_Trichuris_Cats_and_Dogs",0.95,0.0425246804924027,0.145899437320513
+"Prevalence_Hookworm_Cats_and_Dogs",0.95,0.349227080318407,0.52714690289664
+"Prevalence_Schistosoma_Cats_and_Dogs",0.95,0.000289455550457094,0.0469100220482309
+"Prevalence_Ascaris_Pigs",0.95,0.0663006651044417,0.190966476088766
+"Prevalence_Trichuris_Pigs",0.95,0.099496536744028,0.228355517980921
+"Prevalence_Hookworm_Pigs",0.95,0.284281031765881,0.450671773147527
+"Prevalence_Schistosoma_Pigs",0.95,0.00481506543090941,0.0552005143023339
+"Prevalence_Ascaris_Water_Buffalo_and_Cattle",0.95,0.000121877853381135,0.0179818456237673
+"Prevalence_Trichuris_Water_Buffalo_and_Cattle",0.95,0.000124208680670081,0.0182413114449742
+"Prevalence_Hookworm_Water_Buffalo_and_Cattle",0.95,0.0690695386323593,0.153660091184924
+"Prevalence_Schistosoma_Water_Buffalo_and_Cattle",0.95,0.00500316096831878,0.0399021543155604
