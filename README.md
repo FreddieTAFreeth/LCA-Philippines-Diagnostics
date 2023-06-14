@@ -10,14 +10,14 @@ The file ```LatentClassAnalysisFTAF.R``` contains the source code that implement
 
 
 ## Informative Prior Calibration Data
-Using a Bayesian framework allows us to use informative priors. We define our prior for infection intensity to be a gamma distributed, which takes a shape (```sh```) and rate (```rt```) parameter. We use the ```optim()``` function to least-squares fit the 25%, 50% and 75% raw egg count data observed in the field to this gamma distribution. In the absence of quantile data, e.g. in Schistosoma across all hosts, the shape and rate parameters have been hard-coded and not been determined as the result of fitting. The following table below summarises the parameters used in our informative priors:
+Using a Bayesian framework allows us to use informative priors. We define our prior for infection intensity to be a gamma distributed, which takes a shape (```sh```) and rate (```rt```) parameter. We use the ```optim()``` function to least-squares fit the 25%, 50% and 75% raw egg count data observed in the field to this gamma distribution. In the absence of quantile data, e.g. in Schistosoma across all hosts, the shape and rate parameters have been hard-coded and not been determined as the result of fitting. All values are independant unpublished results. The following table below summarises the parameters used in our informative priors:
 
 | Species                  | Ascaris                                         | Trichuris                                          | Hookworm                                           | Schistosoma                                                       |
 |--------------------------|-------------------------------------------------|----------------------------------------------------|----------------------------------------------------|-------------------------------------------------------------------|
-| Humans                   | 25%: 0, 50%: 30.49, 75%: 0<br>Unpublished work  | Same as in Cats and Dogs                           | Same as in Cats and Dogs                           | ```sh``` = 0.5775932<br>```rt``` = 0.07099037<br>Unpublished Work |
-| Cats and Dogs            | Same as Humans                                  | 25%: 0, 50%: 4.417, 75%: 1.250<br>Unpublished work | 25%: 1.75, 50%: 3.5, 75%: 5.25<br>Unpublished Work | ```sh``` = 0.5775932<br>```rt``` = 0.07099037<br>Unpublished Work |
-| Pigs                     | 25%: 0, 50%: 0.5, 75%: 1<br>Unpublished Work    | Same as in Water Buffalo and Cattle                | 25%: 3.75, 50%: 3.5, 75%: 5.25<br>Unpublished Work | ```sh``` = 0.5775932<br>```rt``` = 0.07099037<br>Unpublished Work |
-| Water Buffalo and Cattle | 25%: 0, 50%: 0.1892, 75%: 0<br>Unpublished Work | 25%: 0, 50%: 0.1351, 75%: 0<br>Unpublished Work    | 25%: 0, 50%: 1.216, 75%: 0<br>Unpublished Work     | ```sh``` = 0.5775932<br>```rt``` = 0.07099037<br>Unpublished Work |
+| Humans                   | 25%: 0, 50%: 30.49, 75%: 0| Same as in Cats and Dogs                           | Same as in Cats and Dogs                           | ```sh``` = 0.5775932<br>```rt``` = 0.07099037|
+| Cats and Dogs            | Same as Humans                                  | 25%: 0, 50%: 4.417, 75%: 1.250| 25%: 1.75, 50%: 3.5, 75%: 5.25| ```sh``` = 0.5775932<br>```rt``` = 0.07099037|
+| Pigs                     | 25%: 0, 50%: 0.5, 75%: 1<br>| Same as in Water Buffalo and Cattle                | 25%: 3.75, 50%: 3.5, 75%: 5.25| ```sh``` = 0.5775932<br>```rt``` = 0.07099037|
+| Water Buffalo and Cattle | 25%: 0, 50%: 0.1892, 75%: 0| 25%: 0, 50%: 0.1351, 75%: 0| 25%: 0, 50%: 1.216, 75%: 0| ```sh``` = 0.5775932<br>```rt``` = 0.07099037|
 
 
 ## Main Results and Figures
