@@ -15,9 +15,9 @@ Informative priors were used to ensure model convergence and minimal autocorrela
 | Species                  | Ascaris                          | Trichuris                              | Hookworm                             | Schistosomiasis                              |
 |--------------------------|----------------------------------|----------------------------------------|--------------------------------------|----------------------------------------------|
 | Humans                   | 25%: 0,<br>50%: 30.49,<br>75%: 0 | Same as in Cats<br>and Dogs            | Same as in Cats<br>and Dogs          | ```sh``` = 0.5775932<br>```rt``` = 0.07099037|
-| Cats and Dogs            | Same as in Humans                | 25%: 0,<br>50%: 4.417,<br>75%: 1.250   | 25%: 1.75,<br>50%: 3.5,<br>75%: 5.25 | ```sh``` = 0.5775932<br>```rt``` = 0.07099037|
-| Pigs                     | 25%: 0,<br>50%: 0.5,<br>75%: 1   | Same as in Water<br>Buffalo and Cattle | 25%: 3.75,<br>50%: 3.5,<br>75%: 5.25 | ```sh``` = 0.5775932<br>```rt``` = 0.07099037|
-| Water Buffalo and Cattle | 25%: 0,<br>50%: 0.1892,<br>75%: 0| 25%: 0,<br>50%: 0.1351,<br>75%: 0      | 25%: 0,<br>50%: 1.216,<br>75%: 0     | ```sh``` = 0.5775932<br>```rt``` = 0.07099037|
+| Cats and Dogs            | Same as in Humans                | 25%: 0,<br>50%: 4.417,<br>75%: 1.250   | 25%: 1.75,<br>50%: 3.5,<br>75%: 5.25 | Same as in Humans                            |
+| Pigs                     | 25%: 0,<br>50%: 0.5,<br>75%: 1   | Same as in Water<br>Buffalo and Cattle | 25%: 3.75,<br>50%: 3.5,<br>75%: 5.25 | Same as in Humans                            |
+| Water Buffalo and Cattle | 25%: 0,<br>50%: 0.1892,<br>75%: 0| 25%: 0,<br>50%: 0.1351,<br>75%: 0      | 25%: 0,<br>50%: 1.216,<br>75%: 0     | Same as in Humans                            |
 
 
 ## Main Results and Figures
