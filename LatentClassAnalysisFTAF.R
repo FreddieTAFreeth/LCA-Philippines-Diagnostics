@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 # ============================================================================ #
-# LCA - Philippines Diagnostics: By Frederick T. A. Freeth          12/06/2023 |
+# LCA - Philippines Diagnostics: By Frederick T. A. Freeth          24/07/2023 |
 # ============================================================================ #
 
 # ---- Installing Packages ----
@@ -64,6 +64,11 @@ plotPrev <- function(host, prevSim, prevReal, diagnostics, parasites, PI){
   # Offsets the legend layers so the pch characters appear to be in a big grid.
   legendCoords <- lapply(strsplit(paste(1+dx*(1:nDiagnostics), 
                                         rep(dy,nDiagnostics))," "),as.numeric)
+  
+  # In Pigs, Water Buffalo, and Cattle, Hookworms are actually Strongyles
+  if(host %in% c("Pigs", "Water Buffalo and Cattle")){
+    parasites[which(parasites == "Hookworm")] <- "Strongyles"
+  }
   
   # Reorder the vector c(prevReal, prevSim) so that it is arranged in ordered by
   # prevalence of parasite with the real-world data with the simulated prevalence
