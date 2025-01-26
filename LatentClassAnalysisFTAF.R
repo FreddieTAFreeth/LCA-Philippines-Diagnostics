@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 # ============================================================================ #
-# LCA - Philippines Diagnostics: By Frederick T. A. Freeth          24/07/2023 |
+# LCA - Philippines Diagnostics: By Frederick T. A. Freeth          26/01/2025 |
 # ============================================================================ #
 
 # ---- Installing Packages ----
@@ -65,10 +65,10 @@ plotPrev <- function(host, prevSim, prevReal, diagnostics, parasites, PI){
   legendCoords <- lapply(strsplit(paste(1+dx*(1:nDiagnostics), 
                                         rep(dy,nDiagnostics))," "),as.numeric)
   
-  # In Pigs, Water Buffalo, and Cattle, Hookworms are actually Strongyles
-  if(host %in% c("Pigs", "Water Buffalo and Cattle")){
-    parasites[which(parasites == "Hookworm")] <- "Strongyles"
-  }
+  # In Pigs, Water Buffalo, and Cattle, Hookworms are actually Strongyles. For
+  # Humans and animals, Hookworm and Strongyles are indistinguishable. We first
+  # italicise the other parasite names but keep Hookworm/Strongyles unitalicised.
+  # parasites[which(parasites == "Hookworm")] <- "Hookworm/Strongyles"
   
   # Reorder the vector c(prevReal, prevSim) so that it is arranged in ordered by
   # prevalence of parasite with the real-world data with the simulated prevalence
@@ -80,6 +80,7 @@ plotPrev <- function(host, prevSim, prevReal, diagnostics, parasites, PI){
   # We want to plot the diagnostics in little clusters around each i, where each
   # i is given in 1:nParasites. This gives enough space between the parasites.
   xPoints <- unlist(lapply(1:nParasites, function(i){seq(i-(nDiagnostics-1)/10,i,0.1)}))
+  label_x_points <- rowMeans(matrix(xPoints, nrow = nParasites, byrow = TRUE))
   
   # Plot the real and simulated data
   par(mar=c(4,4,1,extra_margin), mgp=c(2.5,1,0), xpd=T, pty="s", bg="transparent")
@@ -87,8 +88,19 @@ plotPrev <- function(host, prevSim, prevReal, diagnostics, parasites, PI){
        ylim = c(0, 60), las = 1, pch = sort(rep(shapes, nDiagnostics)), xaxt = "n",
        col = rep(cls[match(diagnostics, tDiagnostics)], nParasites))
   title(main = host, adj = 0.5, line = -1, cex = 0.7)
-  axis(1, at = rowMeans(matrix(xPoints, nrow = nParasites, byrow = TRUE)),
-       labels = parasites, cex.axis = 0.9)
+  axis(1, at = label_x_points, labels = sapply(parasites, function(p) {
+         # In Pigs, Water Buffalo, and Cattle, Hookworms are actually Strongyles.
+         # For Humans and animals, Hookworm and Strongyles are indistinguishable.
+         # We italicise the other parasite names but keep Hookworm/Strongyles
+         # unitalicised.
+         if(p == "Hookworm"){return("")} # We'll add "Hookworm/Strongyles" later.
+        else{return(parse(text = paste0("italic('", p, "')")))}
+       }),
+       cex.axis = 0.9
+  )
+  mtext("Hookworm/\nStrongyles", side = 1, line = 1.8, cex = 0.9,
+        at = label_x_points[which(parasites == "Hookworm")]
+  )
   
   # Vertical error bars where the bars are the 95% confidence intervals
   arrows(1:nParasites, unlist(prevSim_CI[2,]), # Lower confidence interval
@@ -148,7 +160,7 @@ plotSP <- function(host, diagnostics, parasites, SPD, PI, simple){
   ntDiagnostics = length(tDiagnostics) # Total number of diagnostics for Human/animal
   tParasites <- unique(c(parasitesH, parasitesA)) # Total parasites in the study
   ntParasites <- length(tParasites) # Total number of parasites in the study
-  cls <- alpha(c("red","blue","orange","green3","purple"), alpha=0.05)
+  cls <- ggplot2::alpha(c("red","blue","orange","green3","purple"), alpha=0.05)
   shapes <- c(15, 16, 17, 18) # Filled shapes start at 15
   if(PI == TRUE){
     extra_margin = 13 # Default extra space to add legends.
@@ -180,19 +192,19 @@ plotSP <- function(host, diagnostics, parasites, SPD, PI, simple){
         # Error bars in the y-axis (sensitivity)
         arrows(x0 = 100*mean(unlist(SPD[i,])), y0 = unlist(sensCI[2]),
                x1 = 100*mean(unlist(SPD[i,])), y1 = unlist(sensCI[3]),
-               col = alpha(cls[cl], alpha = 0.4), length = 0.05, angle = 90,
+               col = ggplot2::alpha(cls[cl], alpha = 0.4), length = 0.05, angle = 90,
                code = 3, lwd = 1.5)
         
         # Error bars in the x-axis (prevalence). Ignore possible NA values
         arrows(y0 = 100*mean(unlist(SPD[d,]), na.rm=T), x0 = unlist(prevCI[2]),
                y1 = 100*mean(unlist(SPD[d,]), na.rm=T), x1 = unlist(prevCI[3]), 
-               col = alpha(cls[cl], alpha = 0.4), length = 0.05, angle = 90,
+               col = ggplot2::alpha(cls[cl], alpha = 0.4), length = 0.05, angle = 90,
                code = 3, lwd = 1.5)
         
         # Plot the mean of the sensitivity-prevalence data.
         points(x = 100*mean(unlist(SPD[i,]), na.rm = TRUE), # Ignores NA values.
                y = 100*mean(unlist(SPD[d,]), na.rm = TRUE), # Ignores NA values.
-               col = alpha(cls[cl], alpha = 1.0), pch = shapes[shape])
+               col = ggplot2::alpha(cls[cl], alpha = 1.0), pch = shapes[shape])
       }
       else{
         # Plot all the sensitivity-prevalence points of the samples. NAs are not plotted.
@@ -288,19 +300,19 @@ plotp1p0 <- function(host, diagnostics, parasites, SSD, PI, simple){
                y0 = unlist(p1CI[2]),
                x1 = 100*mean(unlist(1 - SSD[j+1,]), na.rm = TRUE),
                y1 = unlist(p1CI[3]), 
-               col = alpha(cls[cl], alpha = 0.4), length = 0.05, angle = 90,
+               col = ggplot2::alpha(cls[cl], alpha = 0.4), length = 0.05, angle = 90,
                code = 3, lwd = 1.5)
         
         # Error bars in the x-axis (p0)
         arrows(x0 = unlist(p0CI[2]), y0 = 100*mean(unlist(SSD[j,]), na.rm = TRUE),
                x1 = unlist(p0CI[3]), y1 = 100*mean(unlist(SSD[j,]), na.rm = TRUE),
-               col = alpha(cls[cl], alpha = 0.4), length = 0.05, angle = 90,
+               col = ggplot2::alpha(cls[cl], alpha = 0.4), length = 0.05, angle = 90,
                code = 3, lwd = 1.5)
         
         # Plot the mean of the sensitivity-prevalence data
         points(x = 100*mean(1 - unlist(SSD[j+1,]), na.rm = TRUE),
                y = 100*mean(unlist(SSD[j,]), na.rm = TRUE),
-               col = alpha(cls[cl], alpha = 1.0), pch = shapes[shape])
+               col = ggplot2::alpha(cls[cl], alpha = 1.0), pch = shapes[shape])
       }
       else{
         # Plot all the sensitivity-prevalence points of the samples
@@ -341,7 +353,7 @@ horizLegend <- function(parasites, diagnostics){
   #              are used: Kato-Katz, FEACT, Sedimentation, McMaster, and Flotation
   # parasites:   A list of the parasites to plot. These comes from the vectors
   #              parasitesH and parasitesA, which derive from the raw data.
-  cls <- alpha(c("red","blue","orange","green3","purple","black"),alpha=1)
+  cls <- ggplot2::alpha(c("red","blue","orange","green3","purple","black"), alpha=1)
   shapes <- c(15, 16, 17, 18) # Filled shapes start at 15
   plot.new()
   par(mar=rep(0.01,4), mai=rep(0.01,4), oma=rep(0.01,4), pty="s", bg="transparent")
@@ -363,7 +375,7 @@ gridLegend <- function(parasites, diagnostics){
   nDiagnostics = length(diagnostics)
   nParasites = length(parasites)
   legendCoords <- lapply(strsplit(paste(dx*(1:nDiagnostics), rep(dy,nDiagnostics))," "), as.numeric)
-  cls <- alpha(c("red","blue","orange","green3","purple","black"),alpha=1)
+  cls <- ggplot2::alpha(c("red","blue","orange","green3","purple","black"),alpha=1)
   shapes <- c(15, 16, 17, 18) # Filled shapes start at 15
   
   plot.new()
@@ -586,7 +598,7 @@ write.csv(do.call(rbind, lapply(parasitesH, cmpfun(function(parasite){
 }))), file = "Analysis_Human.csv")
 
 
-# ---- Run The Model For All animal Host Groups and All Parasites ----
+# ---- Run The Model For All Animal Host Groups and All Parasites ----
 for(animal in animals){
   write.csv(do.call(rbind, lapply(parasitesA, cmpfun(function(parasite){
     cat("===========================================================\n")
